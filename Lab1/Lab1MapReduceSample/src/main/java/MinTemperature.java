@@ -13,7 +13,6 @@ public class MinTemperature {
 			System.err.println("Usage: MinTemperature <input path> <output path>");
 			System.exit(-1);
 		}
-		
 		@SuppressWarnings("deprecation")
 		Job job = new Job();
 		job.setJarByClass(MinTemperature.class);
