@@ -10,13 +10,13 @@ public class FriendList {
 
 	public static void main(String[] args) throws Exception {
 		if (args.length != 2) {
-			System.err.println("Usage: MinTemperature <input path> <output path>");
+			System.err.println("Usage: FriendList <input path> <output path>");
 			System.exit(-1);
 		}
 		@SuppressWarnings("deprecation")
 		Job job = new Job();
 		job.setJarByClass(FriendList.class);
-		job.setJobName("Min Temperature");
+		job.setJobName("Friend List");
 		FileInputFormat.addInputPath(job,  new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 		
