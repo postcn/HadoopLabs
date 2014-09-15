@@ -1,0 +1,4 @@
+hadoop jar Lab1MapReduceSample-0.0.1-SNAPSHOT.jar MinTemperature <dir> <dir>
+
+in my case dirs were
+/user/hue/Lab1/temperatureSample.txt /user/hue/Lab1/Output

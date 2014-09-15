@@ -1,0 +1,4 @@
+hadoop jar Lab1Friends-0.0.1-SNAPSHOT.jar edu.rosehulman.postcn.Lab1Friends.FriendList <dir> <dir>
+
+in my case dirs were
+/user/hue/Lab1/friendSample.txt /user/hue/Lab1/OutputFriend
