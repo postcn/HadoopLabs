@@ -1,0 +1,2 @@
+-- Executed on the sandbox machine with this command. Any other valid hdfs location should be able to be used --
+hadoop jar Lab1Script-0.0.1-SNAPSHOT.jar edu.rosehulman.postcn.Lab1Script.FileCopy ./input /user/hue/testScript ./output
