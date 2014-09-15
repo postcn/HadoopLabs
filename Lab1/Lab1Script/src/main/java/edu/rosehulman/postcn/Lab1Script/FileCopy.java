@@ -2,6 +2,7 @@ package edu.rosehulman.postcn.Lab1Script;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -22,25 +23,29 @@ public class FileCopy {
 			System.exit(-1);
 		}
 		
-		String localUpload = args[0];
+		File localUpload = new File(args[0]);
 		String hdfs = args[1];
-		String localDownload = args[2];
+		File localDownload = new File(args[2]);
 		
-		InputStream in = new BufferedInputStream(new FileInputStream(localUpload));
+		for (File file : localUpload.listFiles()) {
+			InputStream in = new BufferedInputStream(new FileInputStream(file));
+			
+			Configuration conf = new Configuration();
+			String location = hdfs+"/"+file.getName();
+			FileSystem fs = FileSystem.get(URI.create(location), conf);
+			System.out.print("Copying " + file.getName()+" to Hadoop: ");
+			OutputStream out = fs.create(new Path(location), new Progressable() {
+				public void progress() {
+					System.out.print(".");
+				}
+			});
+			IOUtils.copyBytes(in, out, 4096, true);
+			System.out.println();
+			System.out.println("Copying back to local system");
+			OutputStream localOut = new BufferedOutputStream(new FileOutputStream(localDownload.getAbsolutePath()+"/"+file.getName()));
+			IOUtils.copyBytes(fs.open(new Path(location)), localOut, 4096, true);
+		}
 		
-		Configuration conf = new Configuration();
-		FileSystem fs = FileSystem.get(URI.create(hdfs), conf);
-		System.out.print("Copying to Hadoop:");
-		OutputStream out = fs.create(new Path(hdfs), new Progressable() {
-			public void progress() {
-				System.out.print(".");
-			}
-		});
-		IOUtils.copyBytes(in, out, 4096, true);
-		System.out.println();
-		System.out.println("Copying back to local system");
-		OutputStream localOut = new BufferedOutputStream(new FileOutputStream(localDownload));
-		IOUtils.copyBytes(fs.open(new Path(hdfs)), localOut, 4096, true);
 		System.out.println("Operations complete");
 		System.exit(0);
 	}
