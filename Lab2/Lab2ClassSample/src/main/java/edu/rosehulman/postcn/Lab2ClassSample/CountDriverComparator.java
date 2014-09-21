@@ -14,6 +14,7 @@ public class CountDriverComparator extends Configured implements Tool {
 
 	public int run(String[] args) throws Exception {
 		Configuration conf = getConf();
+		@SuppressWarnings("deprecation")
 		Job job = new Job(conf, "Custom writable example with raw comparator");
 		
 		job.setJarByClass(CountDriver.class);
