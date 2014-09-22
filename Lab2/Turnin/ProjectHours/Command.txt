@@ -1,0 +1,7 @@
+Command to run without Comparator
+
+hadoop jar Lab2SprintHours-0.0.1-SNAPSHOT.jar edu.rosehulman.postcn.Lab2SprintHours.SprintDriver <dir1> <dir2>
+
+Command to run with Comparator
+
+hadoop jar Lab2SprintHours-0.0.1-SNAPSHOT.jar edu.rosehulman.postcn.Lab2SprintHours.SprintDriverComparator <dir1> <dir2>
