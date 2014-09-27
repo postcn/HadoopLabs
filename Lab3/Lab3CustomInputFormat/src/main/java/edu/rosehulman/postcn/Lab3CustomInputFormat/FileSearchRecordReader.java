@@ -27,6 +27,7 @@ public class FileSearchRecordReader extends RecordReader<Text, IntWritable> {
 			throws IOException, InterruptedException {
 		this.fileSplit = (FileSplit) split;
 		this.conf = context.getConfiguration();
+		searchValue = context.getConfiguration().get(CustomWordCountRunner.SEARCH_KEY);
 	}
 	
 	public void setSearchValue(String value) {
