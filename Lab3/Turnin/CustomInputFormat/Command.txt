@@ -1,0 +1,1 @@
+hadoop jar Lab3CustomInputFormat-0.0.1-SNAPSHOT.jar edu.rosehulman.postcn.Lab3CustomInputFormat.CustomWordCountRunner <input dir> <output dir> <search word>
