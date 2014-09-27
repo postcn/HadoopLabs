@@ -12,7 +12,6 @@ import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 
 public class CustomWordCountInputFormat extends FileInputFormat<Text, IntWritable> {
-	public static String searchString;
 	
 	@Override
 	protected boolean isSplitable(JobContext context, Path file) {
@@ -24,7 +23,6 @@ public class CustomWordCountInputFormat extends FileInputFormat<Text, IntWritabl
 			TaskAttemptContext context) throws IOException,
 			InterruptedException {
 		FileSearchRecordReader reader = new FileSearchRecordReader();
-		reader.setSearchValue(searchString);
 		return reader;
 	}
 

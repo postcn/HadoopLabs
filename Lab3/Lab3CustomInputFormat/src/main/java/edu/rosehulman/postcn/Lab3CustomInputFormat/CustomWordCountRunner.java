@@ -2,11 +2,11 @@ package edu.rosehulman.postcn.Lab3CustomInputFormat;
 
 import java.io.IOException;
 
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapred.Task;
 import org.apache.hadoop.mapreduce.Counters;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -17,6 +17,7 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
 public class CustomWordCountRunner extends Configured implements Tool {
+	public static final String SEARCH_KEY = "SearchString";
 	
 	enum Twos {
 		EQUAL_TO_TWO,
@@ -63,7 +64,8 @@ public class CustomWordCountRunner extends Configured implements Tool {
 		FileInputFormat.addInputPath(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 		
-		CustomWordCountInputFormat.searchString = args[2];
+		Configuration conf = job.getConfiguration();
+		conf.set(SEARCH_KEY, args[2]);
 		
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
