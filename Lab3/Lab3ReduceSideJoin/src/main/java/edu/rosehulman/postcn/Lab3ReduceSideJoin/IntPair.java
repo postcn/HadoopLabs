@@ -11,6 +11,11 @@ public class IntPair implements WritableComparable<IntPair> {
 	private IntWritable first;
 	private IntWritable second;
 	
+	public IntPair() {
+		first = new IntWritable();
+		second = new IntWritable();
+	}
+	
 	public IntPair(int keyFirst, int keySecond) {
 		first = new IntWritable(keyFirst);
 		second = new IntWritable(keySecond);

@@ -14,7 +14,7 @@ public class JoinWorkMapper extends Mapper<LongWritable, Text, IntPair, Text> {
 			throws IOException, InterruptedException {
 		String[] parsed = value.toString().split(",");
 		int id = Integer.parseInt(parsed[2]);
-		context.write(new IntPair(id, JoinTag.WORKER_TAG.getValue()), new Text(parsed[1] + " " + parsed[0]));
+		context.write(new IntPair(id, JoinTag.WORKER_TAG.getValue()), new Text(parsed[0] + " " + parsed[1]));
 	}
 
 }
