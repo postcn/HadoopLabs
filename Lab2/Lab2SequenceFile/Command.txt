@@ -1,0 +1,7 @@
+Command to write directory:
+
+hadoop jar Lab2SequenceFile-0.0.1-SNAPSHOT.jar edu.rosehulman.postcn.Lab2SequenceFile.SequenceFileWriter <dir> <dir>
+
+Command to read Sequence File from directory:
+
+hadoop jar Lab2SequenceFile-0.0.1-SNAPSHOT.jar edu.rosehulman.postcn.Lab2SequenceFile.SequenceFileReader <dir>

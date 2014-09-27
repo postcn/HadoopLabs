@@ -1,0 +1,7 @@
+Command to run without comparator:
+
+hadoop jar Lab2ClassSample-0.0.1-SNAPSHOT.jar edu.rosehulman.postcn.Lab2ClassSample.CountDriver <dir1> <dir2>
+
+Command to run with comparator:
+
+hadoop jar Lab2ClassSample-0.0.1-SNAPSHOT.jar edu.rosehulman.postcn.Lab2ClassSample.CountDriverComparator <dir1> <dir2>
