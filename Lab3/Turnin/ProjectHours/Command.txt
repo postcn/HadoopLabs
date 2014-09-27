@@ -1,0 +1,1 @@
+hadoop jar Lab3ReduceSideJoin-0.0.1-SNAPSHOT.jar edu.rosehulman.postcn.Lab3ReduceSideJoin.JoinRunner <sprint details> <worker details> <output>
