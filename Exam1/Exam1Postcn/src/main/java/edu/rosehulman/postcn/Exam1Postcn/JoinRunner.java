@@ -14,8 +14,6 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-import edu.rosehulman.postcn.Lab3ReduceSideJoin.JoinRunner;
-
 public class JoinRunner extends Configured implements Tool {
 	
 	static class JoinPartitioner extends Partitioner<TextInt, Text> {
