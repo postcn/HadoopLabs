@@ -1,0 +1,1 @@
+hadoop jar Exam1Postcn-0.0.1-SNAPSHOT.jar edu.rosehulman.postcn.Exam1Postcn.JoinRunner <grades> <courses> <output>
