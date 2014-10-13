@@ -1,0 +1,1 @@
+pig -param input=<Input file> -param output=<Output file> postcnTemperature.pig

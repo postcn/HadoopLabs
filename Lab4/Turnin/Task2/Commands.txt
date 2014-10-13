@@ -1,0 +1,11 @@
+*Note* this assumes that you are running the command as the root account on a linux box. If you are not on the root
+account then the pig script file will not run and will say that the file does not exist. (it users /user/root on hdfs)
+
+Create HDFS Directory if it doesn't already exist
+hadoop fs -mkdir postcn_Lab4
+
+Upload Jar
+hadoop fs -copyFromLocal <local path>/UpperCase-0.0.1-SNAPSHOT.jar postcn_Lab4/
+
+Execute Pig Script
+pig -param input=<input> -param output=<output> postcnWordCount.pig
