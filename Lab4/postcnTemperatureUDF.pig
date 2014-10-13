@@ -1,4 +1,4 @@
-REGISTER '$jar';
+REGISTER 'hdfs:///user/root/postcn_Lab4/FilterFunction-0.0.1-SNAPSHOT.jar';
 DEFINE Quality edu.rosehulman.postcn.IsGoodQuality();
 records = LOAD '$input' using PigStorage('\t') AS (year:int, temperature:int, quality:int);
 frecords = FILTER records by Quality(quality);

@@ -1,4 +1,4 @@
-REGISTER '$jar';
+REGISTER 'hdfs:///user/root/postcn_Lab4/Lab4Ratio-0.0.1-SNAPSHOT.jar';
 DEFINE Ratio edu.rosehulman.postcn.RatioCalc();
 %declare DATE `date +"%Y-%m-%d"`;
 records = LOAD '$input' using PigStorage('\t') AS (date:chararray, time:chararray, xEdgeLocation:chararray, scBytes:int, cIp:chararray, csMethod:chararray, csHost:chararray, csUriStem:chararray, scStatus:int, csReferer:chararray, csUserAgent:chararray, csUriQuery:chararray, csCookie:chararray, xEdgeResultType:chararray, xEdgeRequestId:chararray, xHostHeader:chararray, csProtocol:chararray, csBytes:int, timeTaken:int);

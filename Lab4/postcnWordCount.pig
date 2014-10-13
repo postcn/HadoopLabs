@@ -1,4 +1,4 @@
-REGISTER 'hdfs://hadoop04.csse.rose-hulman.edu/user/root/postcn_Lab4/UpperCase-0.0.1-SNAPSHOT.jar';
+REGISTER 'hdfs:///user/root/postcn_Lab4/UpperCase-0.0.1-SNAPSHOT.jar';
 DEFINE Upper edu.rosehulman.postcn.Upper();
 records = LOAD '$input' using PigStorage('\t') AS (line:chararray);
 words = FOREACH records GENERATE FLATTEN(TOKENIZE(line)) as word;
