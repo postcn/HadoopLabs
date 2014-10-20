@@ -1,0 +1,9 @@
+hadoop fs mkdir postcn_Lab6
+
+hadoop fs -copyFromLocal Lab6UDF-0.0.1-SNAPSHOT.jar postcn_Lab6
+
+--Task 1--
+hive -f postcn_task1.hql --hiveconf databaseName=lab6postcn tableName=lab6postcnTemps inputLocation=tempInput.txt
+
+--Task 2--
+hive -f postcn_task2.hql --hiveconf databaseName=lab6postcn
