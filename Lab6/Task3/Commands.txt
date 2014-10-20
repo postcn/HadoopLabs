@@ -1,0 +1,2 @@
+hive -f postcn_task3.hql --hiveconf databaseName=<databaseName> --hiveconf allEmployeesLocation=<location> --hiveconf csseEmployeesLocation=<location> --hiveconf eceEmployeesLocation=<location> --hiveconf adminEmployeesLocation=<location>
+hive -f task3Partitionpostcn.hql --hiveconf databaseName=<databaseName>

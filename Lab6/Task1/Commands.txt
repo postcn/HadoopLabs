@@ -1,0 +1,1 @@
+hive -f postcn_task1.hql --hiveconf databaseName=<database> --hiveconf tableName=<table> --hiveconf inputLocation=<input>

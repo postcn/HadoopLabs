@@ -1,0 +1,1 @@
+hive -f postcn_task4.hql --hiveconf databaseName=<databaseName> --hiveconf pigOutputDir=<pigOutput> --hiveconf jobDate=<date> --hiveconf year=<year> --hiveconf month=<month> --hiveconf day=<day> --hiveconf hour=<hour>
