@@ -3,7 +3,14 @@ hadoop fs mkdir postcn_Lab6
 hadoop fs -copyFromLocal Lab6UDF-0.0.1-SNAPSHOT.jar postcn_Lab6
 
 --Task 1--
-hive -f postcn_task1.hql --hiveconf databaseName=lab6postcn tableName=lab6postcnTemps inputLocation=tempInput.txt
+hive -f postcn_task1.hql --hiveconf databaseName=<database> --hiveconf tableName=<table> --hiveconf inputLocation=<input>
 
 --Task 2--
-hive -f postcn_task2.hql --hiveconf databaseName=lab6postcn
+hive -f postcn_task2.hql --hiveconf databaseName=<database> --hiveconf tableName=<table> --hiveconf inputLocation=<location>
+
+--Task 3--
+hive -f postcn_task3.hql --hiveconf databaseName=<databaseName> --hiveconf allEmployeesLocation=<location> --hiveconf csseEmployeesLocation=<location> --hiveconf eceEmployeesLocation=<location> --hiveconf adminEmployeesLocation=<location>
+hive -f task3Partitionpostcn.hql --hiveconf databaseName=<databaseName>
+
+--Task 4--
+hive -f postcn_task4.hql --hiveconf databaseName=<databaseName> --hiveconf pigOutputDir=<pigOutput> --hiveconf jobDate=<date> --hiveconf year=<year> --hiveconf month=<month> --hiveconf day=<day> --hiveconf hour=<hour>
