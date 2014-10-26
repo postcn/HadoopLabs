@@ -1,0 +1,6 @@
+#create directory
+mkdir ~/tmp/postcn -p
+#move file
+cp <dir>/FlumeInterceptor-0.0.1-SNAPSHOT.jar ~/tmp/postcn/custominterceptor.jar
+#run
+flume-ng agent --conf conf --conf-file postcnTask4Agent.conf --classpath ~/tmp/postcn/custominterceptor.jar --name a1 -Dflume.root.logger=INFO,console

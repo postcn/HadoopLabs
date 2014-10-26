@@ -1,0 +1,31 @@
+#These commands use the same script file. To execute a specific task use that task number.
+
+--Task 1
+task3postcn.sh <database> 1
+
+--Task 2
+task3postcn.sh <database> 2
+
+--Task 3
+task3postcn.sh <database> 3
+
+--Task 4
+task3postcn.sh <database> 4
+
+--Task 5
+task3postcn.sh <database> 5
+
+--Task 6
+#Create the database in hive. I started hive interactive using
+hive
+#Then I executed
+CREATE DATABASE sqooptest;
+
+--Task 7
+task3postcn.sh <database> 7
+
+--Task 8
+task3postcn.sh <database> 8
+
+--Task 9
+task3postcn.sh <database> 9

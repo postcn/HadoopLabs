@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.flume.Context;
 import org.apache.flume.Event;
 import org.apache.flume.interceptor.Interceptor;
 
@@ -21,7 +22,8 @@ public class TextInterceptor implements Interceptor {
 		String hostname;
 		Map<String, String> headers = event.getHeaders();
 		if ((hostname = headers.get("host")) != null) {
-			hostname = hostname.split(".")[0];//separate off the first element.
+			String splitHost = hostname.substring(0, hostname.indexOf('.'));
+			hostname = splitHost;
 		}
 		else if (System.getProperty("os.name").startsWith("Windows")) {
 		    hostname = System.getenv("COMPUTERNAME");
@@ -53,6 +55,18 @@ public class TextInterceptor implements Interceptor {
 	      }
 	    }
 	    return eventList;
+	}
+	
+	public static class Builder implements Interceptor.Builder {
+
+		public void configure(Context arg0) {
+			//leave blank;
+		}
+
+		public Interceptor build() {
+			return new TextInterceptor();
+		}
+		
 	}
 
 }

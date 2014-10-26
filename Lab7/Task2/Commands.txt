@@ -1,0 +1,7 @@
+#The two tasks use the same script.
+
+--Task 1
+task4postcn.sh <database> 1
+
+--Task 2
+task4postcn.sh <database> 2
