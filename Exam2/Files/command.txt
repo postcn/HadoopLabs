@@ -1,0 +1,27 @@
+--Question 1
+--make directory
+mkdir -p /tmp/postcn
+--move file
+mv ExamFiles-0.0.1-SNAPSHOT.jar /tmp/postcn/customInterceptor.jar
+--run flume job
+flume-ng agent --conf conf --conf-file postcnagentinterceptor.conf --classpath /tmp/postcn/customInterceptor.jar --name a1 -Dflume.root.logger=INFO,console
+==========================================
+--Question 2
+--copy jar to hdfs
+hadoop fs -copyFromLocal postcnUDF.jar /tmp/Exams
+--run pig job
+pig -param gradeInput=/tmp/Exams/grades.txt -param courseInput=/tmp/Exams/courses.txt -param username=postcn -param pigOutput=/tmp/ExamsOutput exam.pig 
+==========================================
+--Question 3
+--Create
+hive -f hiveCreate.hql --hiveconf databaseName=postcnExam --hiveconf tempTableName=tempTable --hiveconf tableName=examData
+--Insert
+--*Note* I added a parameter for the output location from pig since we specify it in the pig job.
+hive -f hiveInsert.hql --hiveconf databaseName=postcnExam --hiveconf tempTableName=tempTable --hiveconf tableName=examData --hiveconf pigOutputLocation=hdfs:///tmp/ExamsOutput/postcn
+==========================================
+--Question 4
+SELECT cno, COUNT(grade) FROM examData WHERE grade NOT RLIKE 'D' GROUP BY cno HAVING COUNT(grade) > 1;
+==========================================
+--Question 5
+sqoop export --connect jdbc:mysql://<connection string>/<database name> --username <username> --table <table name> --hcatalog-database <hive database> --hcatalog-table <hive table> --hive-partition-key username --hive-partition-value postcn
+
